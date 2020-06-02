@@ -1,0 +1,94 @@
+body {
+  /* background: #f4f4f4; */ }
+
+#main-nav {
+  transition: all 0.5s ease-out; }
+
+.navbar-shadow {
+  box-shadow: inset 0px 31px 150px rgba(0, 0, 0, 0.9); }
+
+.navbar-border {
+  border-bottom: 2px solid #e4c30b; }
+
+.navbar-brand {
+  font-size: 1.5rem; }
+
+#showcase {
+  position: relative; }
+
+#showcase .showcase-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 100px 200px rgba(0, 0, 0, 0.9);
+  color: #fff; }
+
+.what-icon {
+  padding: 0.5rem;
+  background: #e4c30b;
+  color: #333;
+  border-radius: 10px;
+  margin-right: 0.5rem; }
+
+.carousel-item {
+  height: 300px; }
+
+.carousel-img-1 {
+  background: url("../img/about1.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.carousel-img-2 {
+  background: url("../img/about2.jpg");
+  background-position: center;
+  background-size: cover; }
+
+.carousel-img-3 {
+  background: url("../img/about3.jpg");
+  background-position: center;
+  background-size: cover; }
+
+#about {
+  position: relative; }
+
+#about #about-slides {
+  height: 90vh !important; }
+
+#about .about-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.75);
+  /* box-shadow: inset 0px 100px 200px rgba(0, 0, 0, 0.9); */
+  color: #fff; }
+
+#about .about-text {
+  width: 75%;
+  margin: 0 auto; }
+
+#about .next,
+#about .prev {
+  font-size: 2rem; }
+
+#contact {
+  background: url("../img/contact.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
+
+#contact .dark-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); }
+
+@media (max-width: 768px) {
+  #about .about-text {
+    width: 100%; } }
