@@ -1,3 +1,5 @@
+$primary-color: #e4c30b;
+
 body {
    /* background: #f4f4f4; */
 }
@@ -10,7 +12,7 @@ body {
    box-shadow: inset 0px 31px 150px rgba(0, 0, 0, 0.9);
 }
 .navbar-border {
-   border-bottom: 2px solid #e4c30b;
+   border-bottom: 2px solid $primary-color;
 }
 
 .navbar-brand {
@@ -34,7 +36,7 @@ body {
 
 .what-icon {
    padding: 0.5rem;
-   background: #e4c30b;
+   background: $primary-color;
    color: #333;
    border-radius: 10px;
    margin-right: 0.5rem;
@@ -55,6 +57,14 @@ body {
 }
 .carousel-img-3 {
    background: url('../img/about3.jpg');
+   background-position: center;
+   background-size: cover;
+}
+
+#newsletter {
+   background: url('../img/newsletter.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
    background-position: center;
    background-size: cover;
 }
@@ -92,10 +102,32 @@ body {
    background-size: cover;
    background-attachment: fixed;
 }
+#newsletter .dark-overlay,
 #contact .dark-overlay {
    width: 100%;
    height: 100%;
    background: rgba(0, 0, 0, 0.75);
+}
+
+#who .container {
+   width: 80%;
+   margin-left: 10%;
+   position: relative;
+}
+
+#testimonial .card:hover {
+   background: $primary-color;
+}
+#testimonial img {
+   margin-top: -50px;
+   z-index: 99;
+}
+#testimonial .testimonal-name {
+   font-size: 1.5rem;
+}
+#testimonial .glider-prev,
+#testimonial .glider-next {
+   margin-top: 100px;
 }
 
 @media(max-width: 768px) {

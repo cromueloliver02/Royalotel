@@ -52,6 +52,13 @@ body {
   background-position: center;
   background-size: cover; }
 
+#newsletter {
+  background: url("../img/newsletter.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover; }
+
 #about {
   position: relative; }
 
@@ -84,10 +91,30 @@ body {
   background-size: cover;
   background-attachment: fixed; }
 
+#newsletter .dark-overlay,
 #contact .dark-overlay {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.75); }
+
+#who .container {
+  width: 80%;
+  margin-left: 10%;
+  position: relative; }
+
+#testimonial .card:hover {
+  background: #e4c30b; }
+
+#testimonial img {
+  margin-top: -50px;
+  z-index: 99; }
+
+#testimonial .testimonal-name {
+  font-size: 1.5rem; }
+
+#testimonial .glider-prev,
+#testimonial .glider-next {
+  margin-top: 100px; }
 
 @media (max-width: 768px) {
   #about .about-text {

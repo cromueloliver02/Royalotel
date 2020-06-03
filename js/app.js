@@ -40,10 +40,22 @@ $(document).ready(function () {
 
          $('html, body').animate(
             {
-               scrollTop: $(hash).offset().top - 100
+               scrollTop: $(hash).offset().top - 67
             },
             800
          );
       }
    });
+
+   new Glider(document.querySelector('.glider'), {
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: {
+         prev: '.glider-prev',
+         next: '.glider-next'
+      },
+      dots: '.dots',
+      draggable: true
+
+   })
 });
