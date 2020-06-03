@@ -34,24 +34,6 @@ body {
   border-radius: 10px;
   margin-right: 0.5rem; }
 
-.carousel-item {
-  height: 300px; }
-
-.carousel-img-1 {
-  background: url("../img/about1.jpg");
-  background-position: center;
-  background-size: cover; }
-
-.carousel-img-2 {
-  background: url("../img/about2.jpg");
-  background-position: center;
-  background-size: cover; }
-
-.carousel-img-3 {
-  background: url("../img/about3.jpg");
-  background-position: center;
-  background-size: cover; }
-
 #newsletter {
   background: url("../img/newsletter.jpg");
   background-repeat: no-repeat;
@@ -92,7 +74,8 @@ body {
   background-attachment: fixed; }
 
 #newsletter .dark-overlay,
-#contact .dark-overlay {
+#contact .dark-overlay,
+#video .dark-overlay {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.75); }
@@ -115,6 +98,19 @@ body {
 #testimonial .glider-prev,
 #testimonial .glider-next {
   margin-top: 100px; }
+
+.column-container {
+  column-count: 3;
+  column-gap: 0rem; }
+  .column-container a:hover {
+    cursor: zoom-in; }
+
+#video {
+  background: url("../img/contact.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; }
 
 @media (max-width: 768px) {
   #about .about-text {
