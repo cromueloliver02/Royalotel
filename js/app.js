@@ -9,9 +9,11 @@ $(document).ready(function () {
       pagination: false
    });
    $('#about-slides').superslides({
-      play: 5000,
+      play: 8000,
       animation: 'slide',
-      pagination: true
+      pagination: true,
+      animation_speed: 'slow',
+      inherit_height_from: '#about-slides'
    });
 
    // CHANGES NAVBAR WHEN SCROLL
@@ -78,4 +80,7 @@ $(document).ready(function () {
          });
       });
    });
+
+   // simple lightbox
+   var $gallery = new SimpleLightbox('.room-gallery a', {});
 });

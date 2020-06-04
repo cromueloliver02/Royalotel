@@ -2,8 +2,7 @@ body {
   /* background: #f4f4f4; */ }
 
 #main-nav {
-  transition: all 0.5s ease-out;
-  opacity: 0.9; }
+  transition: all 0.5s ease-out; }
 
 .navbar-shadow {
   box-shadow: inset 0px 31px 150px rgba(0, 0, 0, 0.9); }
@@ -46,7 +45,7 @@ body {
   position: relative; }
 
 #about #about-slides {
-  height: 90vh !important; }
+  height: 75vh !important; }
 
 #about .about-content {
   position: absolute;
