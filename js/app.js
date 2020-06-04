@@ -2,6 +2,30 @@ $(document).ready(function () {
    // get year for the copyright year
    $('#year').text(new Date().getFullYear());
 
+   const hamburgerBtn = document.querySelector('.navbar-toggler');
+   hamburgerBtn.addEventListener('click', function (e) {
+      if (e.target.parentElement.classList.contains('navbar-toggler')) {
+         if (scrollY < window.innerHeight) {
+            document.querySelector('#main-nav').classList.toggle('navbar-border');
+            document.querySelector('#main-nav').classList.toggle('bg-dark');
+         }
+      }
+   });
+   // window.addEventListener('scroll', function () {
+   //    hamburgerBtn.addEventListener('click', function(e) {
+   //       if(e.target.classList.contains('navbar-toggler'))
+   //    });
+   //    .querySelector('.navbar-toggler').addEventListener('click', function () {
+   //       // document.querySelector('#main-nav').classList.toggle('bg-dark');
+   //       // if (!document.querySelector('#main-nav').classList.contains('navbar-shadow')) {
+   //       //    document.querySelector('#main-nav').classList.toggle('navbar-shadow');
+   //       // }
+   //       if (this.scrollY < window.innerHeight) {
+   //          document.querySelector('#main-nav').classList.toggle('navbar-border');
+   //       }
+   //    });
+   // });
+
    // configure superslides
    $('#slides').superslides({
       play: 10000,
@@ -50,16 +74,39 @@ $(document).ready(function () {
    });
 
    new Glider(document.querySelector('.glider'), {
-      slidesToShow: 3.4,
+      // Mobile-first defaults
+      slidesToShow: 1,
       slidesToScroll: 1,
+      scrollLock: true,
+      dots: '.dots',
+      duration: 1.25,
       arrows: {
          prev: '.glider-prev',
          next: '.glider-next'
       },
-      dots: '.dots',
-      draggable: true
-
-   })
+      responsive: [
+         {
+            // screens greater than >= 775px
+            breakpoint: 768,
+            settings: {
+               // Set to `auto` and provide item width to adjust to viewport
+               slidesToShow: 2,
+               slidesToScroll: 1,
+               itemWidth: 150,
+               duration: 1.25
+            }
+         }, {
+            // screens greater than >= 1024px
+            breakpoint: 1024,
+            settings: {
+               slidesToShow: 3,
+               slidesToScroll: 1,
+               itemWidth: 150,
+               duration: 1.25
+            }
+         }
+      ]
+   });
 
    // lightbox
    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
