@@ -2,31 +2,6 @@ $(document).ready(function () {
    // get year for the copyright year
    $('#year').text(new Date().getFullYear());
 
-   const hamburgerBtn = document.querySelector('.navbar-toggler');
-   hamburgerBtn.addEventListener('click', function (e) {
-      // console.log(e.target);
-      if (e.target.classList.contains('navbar-toggler') || e.target.parentElement.classList.contains('navbar-toggler')) {
-         if (scrollY < window.innerHeight) {
-            document.querySelector('#main-nav').classList.toggle('navbar-border');
-            document.querySelector('#main-nav').classList.toggle('bg-dark');
-         }
-      }
-   });
-   // window.addEventListener('scroll', function () {
-   //    hamburgerBtn.addEventListener('click', function(e) {
-   //       if(e.target.classList.contains('navbar-toggler'))
-   //    });
-   //    .querySelector('.navbar-toggler').addEventListener('click', function () {
-   //       // document.querySelector('#main-nav').classList.toggle('bg-dark');
-   //       // if (!document.querySelector('#main-nav').classList.contains('navbar-shadow')) {
-   //       //    document.querySelector('#main-nav').classList.toggle('navbar-shadow');
-   //       // }
-   //       if (this.scrollY < window.innerHeight) {
-   //          document.querySelector('#main-nav').classList.toggle('navbar-border');
-   //       }
-   //    });
-   // });
-
    // configure superslides
    $('#slides').superslides({
       play: 10000,
@@ -57,22 +32,43 @@ $(document).ready(function () {
       document.querySelector('#main-nav').classList.remove('navbar-shadow');
       document.querySelector('#main-nav').classList.add('navbar-border');
    }
-   function collapseNavbar() {
-      // if (document.querySelector('#navbar-menu').classList.contains('collapse')) {
-      document.querySelector('#navbar-menu').classList.toggle('collapse');
-      // }
-      // console.log('scroll');
-   }
+   const header = document.querySelector('header');
+   const navbar = document.querySelector('#main-nav');
    window.addEventListener('scroll', function () {
-      // collapseNavbar();
-      if (this.scrollY < 100) {
+      if (this.scrollY < 50) {
          transparentNavbar();
-      } else if (this.scrollY >= 100 && this.scrollY < window.innerHeight - 62) {
+      } else if (this.scrollY >= 50 && this.scrollY < header.offsetHeight - navbar.offsetHeight) {
          darkOverlayNavbar();
-      } else if (this.scrollY >= window.innerHeight - 62) {
+      } else if (this.scrollY >= header.offsetHeight - navbar.offsetHeight) {
          solidNavbar();
       }
    });
+
+   // change navbar background on hamburger btn click
+   const hamburgerBtn = document.querySelector('.navbar-toggler');
+   hamburgerBtn.addEventListener('click', function (e) {
+      if (e.target.classList.contains('navbar-toggler') || e.target.parentElement.classList.contains('navbar-toggler')) {
+         if ($('#main-nav').offset().top < 50) {
+            document.querySelector('#main-nav').classList.toggle('bg-dark');
+            document.querySelector('#main-nav').classList.toggle('navbar-border');
+            document.querySelector('#main-nav').classList.remove('navbar-shadow');
+         }
+         if ($('#main-nav').offset().top >= 50 && $('#main-nav').offset().top < header.offsetHeight - navbar.offsetHeight) {
+            document.querySelector('#main-nav').classList.toggle('bg-dark');
+            document.querySelector('#main-nav').classList.toggle('navbar-border');
+            document.querySelector('#main-nav').classList.toggle('navbar-shadow');
+         }
+      }
+   });
+
+   // change navbar background on load
+   if ($('#main-nav').offset().top < 50) {
+      transparentNavbar();
+   } else if ($('#main-nav').offset().top >= 50 && $('#main-nav').offset().top < header.offsetHeight - navbar.offsetHeight) {
+      darkOverlayNavbar();
+   } else if ($('#main-nav').offset().top >= header.offsetHeight - navbar.offsetHeight) {
+      solidNavbar();
+   }
 
    /* SMOOTH SCROLLING */
    $('#main-nav a, .btn').on('click', function (event) {
@@ -90,40 +86,42 @@ $(document).ready(function () {
       }
    });
 
-   new Glider(document.querySelector('.glider'), {
-      // Mobile-first defaults
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      scrollLock: true,
-      dots: '.dots',
-      duration: 1.25,
-      arrows: {
-         prev: '.glider-prev',
-         next: '.glider-next'
-      },
-      responsive: [
-         {
-            // screens greater than >= 775px
-            breakpoint: 768,
-            settings: {
-               // Set to `auto` and provide item width to adjust to viewport
-               slidesToShow: 2,
-               slidesToScroll: 1,
-               itemWidth: 150,
-               duration: 1.25
+   if ($('.glider')[0]) {
+      const $glider = new Glider(document.querySelector('.glider'), {
+         // Mobile-first defaults
+         slidesToShow: 1,
+         slidesToScroll: 1,
+         scrollLock: true,
+         dots: '.dots',
+         duration: 1.25,
+         arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
+         },
+         responsive: [
+            {
+               // screens greater than >= 775px
+               breakpoint: 768,
+               settings: {
+                  // Set to `auto` and provide item width to adjust to viewport
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  itemWidth: 150,
+                  duration: 1.25
+               }
+            }, {
+               // screens greater than >= 1024px
+               breakpoint: 1024,
+               settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  itemWidth: 150,
+                  duration: 1.25
+               }
             }
-         }, {
-            // screens greater than >= 1024px
-            breakpoint: 1024,
-            settings: {
-               slidesToShow: 3,
-               slidesToScroll: 1,
-               itemWidth: 150,
-               duration: 1.25
-            }
-         }
-      ]
-   });
+         ]
+      });
+   }
 
    // lightbox
    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
