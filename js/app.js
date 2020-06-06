@@ -1,4 +1,16 @@
+// window.onload(function () {
+
+// });
+
 $(document).ready(function () {
+   // loader
+   setTimeout(() => {
+      document.querySelector('.loader').classList.add('loader-fade');
+   }, 1000);
+   setTimeout(() => {
+      document.querySelector('.loader').classList.add('loader-fade');
+   }, 2000);
+
    // get year for the copyright year
    $('#year').text(new Date().getFullYear());
 
